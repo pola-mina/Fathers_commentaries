@@ -1,0 +1,17 @@
+<%= form_with(model: father_commentary, local: true) do |form| %>
+  <% if father_commentary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(father_commentary.errors.count, "error") %> prohibited this father_commentary from being saved:</h2>
+
+      <ul>
+      <% father_commentary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

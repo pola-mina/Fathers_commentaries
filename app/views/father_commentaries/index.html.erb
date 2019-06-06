@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Father Commentaries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @father_commentaries.each do |father_commentary| %>
+      <tr>
+        <td><%= link_to 'Show', father_commentary %></td>
+        <td><%= link_to 'Edit', edit_father_commentary_path(father_commentary) %></td>
+        <td><%= link_to 'Destroy', father_commentary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Father Commentary', new_father_commentary_path %>
