@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_085536) do
+ActiveRecord::Schema.define(version: 2019_06_07_093016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 2019_06_07_085536) do
     t.string "arabic_name"
     t.string "arabic_wikipedia"
     t.string "english_wikipedia"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "hashed_password"
+    t.string "role"
   end
 
 end
