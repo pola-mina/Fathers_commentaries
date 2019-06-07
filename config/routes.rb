@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :verses
   resources :users
   resources :fathers
   resources :father_commentaries
