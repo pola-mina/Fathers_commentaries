@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_07_215524) do
+ActiveRecord::Schema.define(version: 2019_06_07_233246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 2019_06_07_215524) do
     t.text "searchable_english_commentary"
     t.text "searchable_arabic_commentary"
     t.integer "father_id"
+  end
+
+  create_table "father_commentaries_verses", id: false, force: :cascade do |t|
+    t.bigint "verse_id", null: false
+    t.bigint "father_commentary_id", null: false
+    t.index ["verse_id", "father_commentary_id"], name: "index_on_verse_id_and_father_commentary_id", unique: true
   end
 
   create_table "fathers", force: :cascade do |t|
