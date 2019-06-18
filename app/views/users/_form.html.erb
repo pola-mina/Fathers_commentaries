@@ -10,7 +10,14 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="field">
+    <%= form.label :username %><br />
+    <%= form.text_field :username %>
+  </div>
+  <div class="field">
+    <%= form.label :hashed_password %><br />
+    <%= form.password_field :hashed_password %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>
