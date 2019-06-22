@@ -24,8 +24,9 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    byebug
     @user = User.new(user_params)
-    @user.password_digest = params[:password_digest]
+    @user.password = user_params[:password]
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -60,8 +61,9 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
@@ -69,15 +71,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :password_digest)
-    end
-
-    def password_digest
-      @password ||= Password.new(password_digest)
-    end
-  
-    def password_digest=(new_password)
-      @password = Password.create(new_password)
-      self.password_digest = @password
+      params.require(:user).permit(:username, :password)
     end
 end
