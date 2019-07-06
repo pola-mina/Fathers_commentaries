@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'devise', '~> 4.2'
+gem 'cancancan'
+gem 'devise_token_auth', '~> 0.1.31'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

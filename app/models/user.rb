@@ -2,14 +2,9 @@
 require 'bcrypt'
 
 class User < ApplicationRecord
-    include BCrypt
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-    def password
-        @password ||= Password.new(hashed_password)
-    end
-    
-    def password=(new_password)
-      @password = Password.create(new_password)
-      self.hashed_password = @password
-    end
 end
